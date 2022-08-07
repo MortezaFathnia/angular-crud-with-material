@@ -1,0 +1,60 @@
+<ng-container>
+    <!-- *ngIf="loaded$ | async else loading" -->
+    <div class="table-container">
+        <mat-table matSort [dataSource]="dataSource">
+    
+            <ng-container  matColumnDef="lastname">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>Lastname</mat-header-cell>
+                <mat-cell *matCellDef="let customer">
+                     {{customer.lastname}}
+                </mat-cell>
+            </ng-container>
+    
+            <ng-container  matColumnDef="phoneNumber">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>PhoneNumber</mat-header-cell>
+                <mat-cell *matCellDef="let customer">
+                     {{customer.phoneNumber}}
+                </mat-cell>
+            </ng-container>
+    
+            <ng-container  matColumnDef="email">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>Email</mat-header-cell>
+                <mat-cell *matCellDef="let customer">
+                     {{customer.email}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container  matColumnDef="bankAccountNumber">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>BankAccountNumber</mat-header-cell>
+                <mat-cell *matCellDef="let customer">
+                     {{customer.bankAccountNumber}}
+                </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="action" stickyEnd>
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let customer">
+                    <ng-container>
+                        <ng-container>
+                            <button (click)="openEditingCustomerForm(customer)" mat-icon-button color="primary">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button (click)="confirmDeleteItem(customer)" mat-icon-button color="primary">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </ng-container>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+            <mat-row *matRowDef="let row;columns: displayedColumns;"></mat-row>
+        </mat-table>
+    
+    </div>
+
+    <p>No Customer was found.</p>
+</ng-container>
+
+<ng-template #loading>
+    <p>Loading...</p>
+</ng-template>

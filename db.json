@@ -1,0 +1,13 @@
+{
+    "customers":[
+        {
+            "Id":"1",
+            "Firstname":"John",
+            "Lastname":"Doe",
+            "DateOfBirth":"1989",
+            "PhoneNumber":"+12345667",
+            "Email":"john@gmail.com",
+            "BankAccountNumber":"123455534"
+        }
+    ]
+}
