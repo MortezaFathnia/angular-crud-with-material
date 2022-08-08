@@ -77,7 +77,7 @@ export class CustomerFromComponent implements OnInit, OnDestroy {
             dateOfBirth: ['', [Validators.required]],
             phoneNumber: ['', [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             email: ['', [Validators.pattern(PAT_EMAIL)]],
-            bankAccountNumber: ['']
+            bankAccountNumber: ['', [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
         });
     }
 

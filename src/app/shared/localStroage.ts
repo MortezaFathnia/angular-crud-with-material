@@ -1,4 +1,4 @@
-import { Observable, of, from } from "rxjs";
+import { Observable, of } from "rxjs";
 import { Customer } from "../modules/costumer/customer-type";
 
 export class Storage {
