@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>Alert</h2>
+<mat-dialog-content>Are you sure to delete {{data.firstname}} {{data.lastname}}?</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true">Delete</button>
+</mat-dialog-actions>

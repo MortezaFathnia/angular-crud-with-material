@@ -1,5 +1,5 @@
 <h2 class="form-header"> {{!customerId ? 'Create Customer' : 'Edit Customer'}}</h2>
-<form [formGroup]="form"  (ngSubmit)="save(form.valid, form.value)" class="form">
+<form [formGroup]="form" (ngSubmit)="save(form.valid, form.value)" class="form">
 
     <mat-form-field>
         <mat-label>First Name</mat-label>
@@ -13,28 +13,53 @@
 
     <mat-form-field>
         <mat-label>Date Of Birth</mat-label>
-        <input matInput formControlName="dateOfBirth"/>
+        <input matInput formControlName="dateOfBirth" [matDatepicker]="fromDatePicker">
+        <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #fromDatePicker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>PhoneNumber</mat-label>
-        <input matInput formControlName="phoneNumber"/>
+        <input matInput formControlName="phoneNumber" />
+        <!-- Validation messages -->
+        <mat-error class="invalid-feedback" *ngIf="(isFormSubmitted && form.controls['phoneNumber'].errors) || 
+         (!form.controls['phoneNumber'].pristine && form.controls['phoneNumber'].invalid)">
+            <div *ngIf="form.controls['phoneNumber'].errors && form.controls['phoneNumber'].errors['pattern']">
+                Enter valid phoneNumber
+            </div>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Email</mat-label>
         <input type="email" matInput formControlName="email">
+        <!-- Validation messages -->
+        <mat-error class="invalid-feedback" *ngIf="(isFormSubmitted && form.controls['email'].errors) || 
+        (!form.controls['email'].pristine && form.controls['email'].invalid)">
+            <div *ngIf="form.controls['email'].errors && form.controls['email'].errors['pattern']">
+                Enter valid email
+            </div>
+        </mat-error>
     </mat-form-field>
+
 
     <mat-form-field>
         <mat-label>Bank Account Number </mat-label>
-        <input type="number" matInput formControlName="bankAccountNumber">
+        <input matInput formControlName="bankAccountNumber">
+        <!-- Validation messages -->
+        <mat-error class="invalid-feedback" *ngIf="(isFormSubmitted && form.controls['bankAccountNumber'].errors) || 
+          (!form.controls['bankAccountNumber'].pristine && form.controls['bankAccountNumber'].invalid)">
+            <div *ngIf="form.controls['bankAccountNumber'].errors && form.controls['bankAccountNumber'].errors['pattern']">
+                Enter valid phoneNumber
+            </div>
+        </mat-error>
     </mat-form-field>
 
 
     <div class="btn-wrapper">
-        <button class="action-button"  mat-flat-button color="primary" type="submit">Save</button>
-        <button class="action-button" mat-stroked-button type="button" cdkFocusRegionEnd cdkFocusInitial>Cancel</button>
+        <button class="action-button" mat-flat-button color="primary" type="submit">Save</button>
+        <button class="action-button" mat-stroked-button type="button" (click)="backToList()" cdkFocusRegionEnd
+            cdkFocusInitial>Cancel</button>
     </div>
 
 

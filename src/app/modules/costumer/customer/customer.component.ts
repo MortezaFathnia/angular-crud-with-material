@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Customer } from "../customer-type";
 
 @Component({
@@ -9,16 +9,19 @@ import { Customer } from "../customer-type";
 })
 export class CustomerComponent implements OnInit, OnDestroy {
     constructor(
-        private router:Router
+        private router: Router,
+        private activatedRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-     
+
     }
 
     openAddingCustomerForm() {
-        this.router.navigate(['/add'])
+        console.log(this.activatedRoute)
+        this.router.navigate(['add'], { relativeTo: this.activatedRoute })
     }
+
     ngOnDestroy(): void {
 
     }

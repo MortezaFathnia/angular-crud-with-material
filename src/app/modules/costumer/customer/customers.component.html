@@ -1,5 +1,5 @@
 <ng-container>
-    <div class="table-container">
+    <div class="table-container" *ngIf="dataSource">
         <mat-table matSort [dataSource]="dataSource">
     
             <ng-container  matColumnDef="lastname">
@@ -12,7 +12,7 @@
             <ng-container  matColumnDef="phoneNumber">
                 <mat-header-cell mat-sort-header *matHeaderCellDef>Phone Number</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
-                     {{customer.phoneNumber}}
+                     +{{customer.phoneNumber}}
                 </mat-cell>
             </ng-container>
     
@@ -51,7 +51,7 @@
     
     </div>
 
-    <p>No Customer was found.</p>
+    <p *ngIf="!dataSource">No Customer was found.</p>
 </ng-container>
 
 <ng-template #loading>

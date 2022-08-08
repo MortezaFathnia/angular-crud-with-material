@@ -5,9 +5,14 @@ import { CustomerComponent } from './customer/customer.component';
 import { CustomerFromComponent } from './customer/customer-form.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: ''
+  // },
   {
     path: '',
-    component: CustomerComponent,
+    component: CustomerComponent
   },
   {
     path: 'edit/:id',
