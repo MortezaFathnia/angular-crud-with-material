@@ -1,15 +1,6 @@
 {
   "customers": [
     {
-      "firstname": "John",
-      "lastname": "Doe",
-      "dateOfBirth": "1991",
-      "phoneNumber": "12345667",
-      "email": "john@gmail.com",
-      "bankAccountNumber": "123455534",
-      "id": "1"
-    },
-    {
       "firstname": "Jane",
       "lastname": "Doe",
       "dateOfBirth": "1988",

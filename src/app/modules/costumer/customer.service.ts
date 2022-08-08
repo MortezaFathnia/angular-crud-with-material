@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { Customer } from './customer-type';
+import { Storage } from '@shared/localStroage';
 
 
 @Injectable()
@@ -15,22 +16,22 @@ export class CustomerService {
   ) { }
 
   getAll(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.url);
+    return Storage.getAll();
   }
 
   getItemById(id: number): Observable<Customer> {
-    return this.http.get<Customer>(this.url + '/' + id);
+    return Storage.getItemById(id);
   }
 
-  create(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(this.url, customer);
+  create(customer: Customer): Observable<{}> {
+    return Storage.create(customer);
   }
 
-  deleteItem(id: number): Observable<Customer> {
-    return this.http.delete<Customer>(this.url + '/' + id);
+  deleteItem(id: number): Observable<{}> {
+    return Storage.deleteItem(id);
   }
 
   update(customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(this.url + '/' + customer.id, customer);
+    return Storage.updateItem(customer);
   }
 }

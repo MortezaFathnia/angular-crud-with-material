@@ -18,7 +18,6 @@ export class CustomerComponent implements OnInit, OnDestroy {
     }
 
     openAddingCustomerForm() {
-        console.log(this.activatedRoute)
         this.router.navigate(['add'], { relativeTo: this.activatedRoute })
     }
 

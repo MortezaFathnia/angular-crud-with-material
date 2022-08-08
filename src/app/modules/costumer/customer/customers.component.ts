@@ -22,7 +22,7 @@ export interface DialogData {
 })
 export class CustomersComponent implements OnInit, OnDestroy {
     private ngDestroy$ = new Subject();
-    displayedColumns = ['lastname', 'phoneNumber', 'email', 'bankAccountNumber', 'action'];
+    displayedColumns = ['name', 'phoneNumber', 'email', 'bankAccountNumber', 'action'];
     dataSource: Customer[] = [];
     constructor(
         private customerService: CustomerService,
@@ -59,6 +59,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
     getAllCustomers(): void {
         this.customerService.getAll().pipe(takeUntil(this.ngDestroy$))
             .subscribe((data) => {
+                console.log(data);
                 this.dataSource = data;
             })
     }

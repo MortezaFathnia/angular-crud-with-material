@@ -6,4 +6,5 @@ export interface Customer {
 	phoneNumber: number;
 	email: string;
 	bankAccountNumber: number;
+	deleted?:boolean;
 }

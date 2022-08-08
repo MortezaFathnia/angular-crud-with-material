@@ -2,29 +2,29 @@
     <div class="table-container" *ngIf="dataSource">
         <mat-table matSort [dataSource]="dataSource">
     
-            <ng-container  matColumnDef="lastname">
-                <mat-header-cell mat-sort-header *matHeaderCellDef>LastName</mat-header-cell>
+            <ng-container  matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
-                     {{customer.lastname}}
+                    {{customer.firstname}}{{' '}}{{customer.lastname}}
                 </mat-cell>
             </ng-container>
     
             <ng-container  matColumnDef="phoneNumber">
-                <mat-header-cell mat-sort-header *matHeaderCellDef>Phone Number</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef>Phone Number</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
                      +{{customer.phoneNumber}}
                 </mat-cell>
             </ng-container>
     
             <ng-container  matColumnDef="email">
-                <mat-header-cell mat-sort-header *matHeaderCellDef>Email</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
                      {{customer.email}}
                 </mat-cell>
             </ng-container>
 
             <ng-container  matColumnDef="bankAccountNumber">
-                <mat-header-cell mat-sort-header *matHeaderCellDef>Bank Account Number</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef>Bank Account Number</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
                      {{customer.bankAccountNumber}}
                 </mat-cell>
@@ -51,7 +51,7 @@
     
     </div>
 
-    <p *ngIf="!dataSource">No Customer was found.</p>
+    <p *ngIf="dataSource.length==0">No Customer was found.</p>
 </ng-container>
 
 <ng-template #loading>

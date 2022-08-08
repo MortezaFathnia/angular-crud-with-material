@@ -25,11 +25,12 @@ export class CustomerFromComponent implements OnInit, OnDestroy {
         private router: Router,
         private customerService: CustomerService
     ) {
-        this.customerId = activatedRoute.snapshot.paramMap.get('id')
+        this.customerId = activatedRoute.snapshot.paramMap.get('id');
+        this.createForm();
         if (this.customerId) {
             this.getCustomerById(+this.customerId)
         }
-        this.createForm();
+
     }
 
     ngOnInit(): void {
@@ -48,8 +49,14 @@ export class CustomerFromComponent implements OnInit, OnDestroy {
             })
         } else {
             this.customerService.create(value).pipe(takeUntil(this.ngDestroy$)).subscribe(data => {
-                this.notification.notify(messages['CREATED']);
-                this.router.navigate(['./']);
+                console.log(data)
+                if (data == 'Customer created before') {
+                    this.notification.notify(data as string);
+                    this.router.navigate(['./']);
+                } else {
+                    this.notification.notify(messages['CREATED']);
+                    this.router.navigate(['./']);
+                }
             });
         }
 
@@ -65,12 +72,12 @@ export class CustomerFromComponent implements OnInit, OnDestroy {
     createForm() {
         const PAT_EMAIL = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
         this.form = this.formBuilder.group({
-            firstname: ['',[Validators.required]],
-            lastname: ['',[Validators.required]],
-            dateOfBirth: ['',[Validators.required]],
-            phoneNumber: ['',[Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+            firstname: ['', [Validators.required]],
+            lastname: ['', [Validators.required]],
+            dateOfBirth: ['', [Validators.required]],
+            phoneNumber: ['', [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             email: ['', [Validators.pattern(PAT_EMAIL)]],
-            bankAccountNumber: ['',[Validators.pattern("^\d{9,18}$")]]
+            bankAccountNumber: ['']
         });
     }
 
