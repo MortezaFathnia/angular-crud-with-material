@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import {  CustomerType } from './customer-type';
+import { Customer } from './customer-type';
 
 
 @Injectable()
@@ -14,19 +14,23 @@ export class CustomerService {
     private http: HttpClient
   ) { }
 
-  getAll(): Observable<CustomerType[]> {
-    return this.http.get<CustomerType[]>(this.url);
+  getAll(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.url);
   }
 
-  //   create(addressType: AddressType): Observable<AddressType> {
-  //     return this.http.post<AddressType>(this.url, addressType);
-  //   }
+  getItemById(id: number): Observable<Customer> {
+    return this.http.get<Customer>(this.url + '/' + id);
+  }
 
-  //   delete(id: number): Observable<AddressType> {
-  //     return this.http.delete<AddressType>(this.url + '/' + id);
-  //   }
+  create(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(this.url, customer);
+  }
 
-  //   update(addressType: AddressType): Observable<AddressType> {
-  //     return this.http.put<AddressType>(this.url + '/' + addressType.addressTypeId , addressType);
-  //   }
+  deleteItem(id: number): Observable<Customer> {
+    return this.http.delete<Customer>(this.url + '/' + id);
+  }
+
+  update(customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(this.url + '/' + customer.id, customer);
+  }
 }

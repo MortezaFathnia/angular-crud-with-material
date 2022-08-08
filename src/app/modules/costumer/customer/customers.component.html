@@ -1,17 +1,16 @@
 <ng-container>
-    <!-- *ngIf="loaded$ | async else loading" -->
     <div class="table-container">
         <mat-table matSort [dataSource]="dataSource">
     
             <ng-container  matColumnDef="lastname">
-                <mat-header-cell mat-sort-header *matHeaderCellDef>Lastname</mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef>LastName</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
                      {{customer.lastname}}
                 </mat-cell>
             </ng-container>
     
             <ng-container  matColumnDef="phoneNumber">
-                <mat-header-cell mat-sort-header *matHeaderCellDef>PhoneNumber</mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef>Phone Number</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
                      {{customer.phoneNumber}}
                 </mat-cell>
@@ -25,7 +24,7 @@
             </ng-container>
 
             <ng-container  matColumnDef="bankAccountNumber">
-                <mat-header-cell mat-sort-header *matHeaderCellDef>BankAccountNumber</mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef>Bank Account Number</mat-header-cell>
                 <mat-cell *matCellDef="let customer">
                      {{customer.bankAccountNumber}}
                 </mat-cell>

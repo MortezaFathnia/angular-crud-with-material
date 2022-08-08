@@ -1,0 +1,15 @@
+.form{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    padding-top: 2rem;
+}
+.form-header{
+    padding-top: 1rem;
+}
+.btn-wrapper{
+    display:grid;
+    margin-top: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+}

@@ -1,1 +1,41 @@
-<div>CustomerForm is working</div>
+<h2 class="form-header"> {{!customerId ? 'Create Customer' : 'Edit Customer'}}</h2>
+<form [formGroup]="form"  (ngSubmit)="save(form.valid, form.value)" class="form">
+
+    <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstname" cdkFocusRegionStart>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastname">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Date Of Birth</mat-label>
+        <input matInput formControlName="dateOfBirth"/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>PhoneNumber</mat-label>
+        <input matInput formControlName="phoneNumber"/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Bank Account Number </mat-label>
+        <input type="number" matInput formControlName="bankAccountNumber">
+    </mat-form-field>
+
+
+    <div class="btn-wrapper">
+        <button class="action-button"  mat-flat-button color="primary" type="submit">Save</button>
+        <button class="action-button" mat-stroked-button type="button" cdkFocusRegionEnd cdkFocusInitial>Cancel</button>
+    </div>
+
+
+</form>

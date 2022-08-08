@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Customer } from "../customer-type";
 
 @Component({
     selector: 'app-costumer',
@@ -7,12 +9,16 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 })
 export class CustomerComponent implements OnInit, OnDestroy {
     constructor(
+        private router:Router
     ) { }
 
     ngOnInit(): void {
-        console.log(124)
+     
     }
 
+    openAddingCustomerForm() {
+        this.router.navigate(['/add'])
+    }
     ngOnDestroy(): void {
 
     }

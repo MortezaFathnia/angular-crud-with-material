@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from "@angular/router";
+
 import { CustomerService } from "../customer.service";
 import { Serializer } from "@shared/serializer";
 import { Customer } from "../customer-type";
@@ -10,25 +12,27 @@ import { Customer } from "../customer-type";
     styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit, OnDestroy {
-    displayedColumns = ['lastname', 'phoneNumber', 'email', 'bankAccountNumber','action'];
+    displayedColumns = ['lastname', 'phoneNumber', 'email', 'bankAccountNumber', 'action'];
     dataSource: Customer[] = [];
     constructor(
-        private customerService: CustomerService
+        private customerService: CustomerService,
+        private activatedRoute: ActivatedRoute,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
         this.customerService.getAll()
-            .pipe(
-                map(item => Serializer.serialize(item))
-            ).subscribe((data) => {
-                this.dataSource = data as Customer[];
+            .subscribe((data) => {
+                this.dataSource = data;
             })
     }
-    openEditingCustomerForm(item:Customer){
 
+    openEditingCustomerForm(item: Customer) {
+        console.log(item.id)
+        this.router.navigate([`/edit`, item.id])
     }
-    confirmDeleteItem(item:Customer){
-
+    confirmDeleteItem(item: Customer) {
+        //delete
     }
     ngOnDestroy(): void {
 

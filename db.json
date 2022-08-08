@@ -1,13 +1,40 @@
 {
-    "customers":[
-        {
-            "Id":"1",
-            "Firstname":"John",
-            "Lastname":"Doe",
-            "DateOfBirth":"1989",
-            "PhoneNumber":"+12345667",
-            "Email":"john@gmail.com",
-            "BankAccountNumber":"123455534"
-        }
-    ]
+  "customers": [
+    {
+      "id": "1",
+      "firstname": "John",
+      "lastname": "Doe",
+      "dateOfBirth": "1989",
+      "phoneNumber": "+12345667",
+      "email": "john@gmail.com",
+      "bankAccountNumber": "123455534"
+    },
+    {
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "dateOfBirth": "1988",
+      "phoneNumber": "+12345667",
+      "email": "jane@gmail.com",
+      "bankAccountNumber": "123455534",
+      "id": "2"
+    },
+    {
+      "firstname": "asdad",
+      "lastname": "dsadsds",
+      "dateOfBirth": "122344",
+      "phoneNumber": "12345",
+      "email": "test@test.com",
+      "bankAccountNumber": 1234566,
+      "id": "ayf2Kes"
+    },
+    {
+      "firstname": "elena",
+      "lastname": "doe",
+      "dateOfBirth": "123455",
+      "phoneNumber": "123455",
+      "email": "elena@gmail.com",
+      "bankAccountNumber": 122222222224,
+      "id": "l93oMmq"
+    }
+  ]
 }
