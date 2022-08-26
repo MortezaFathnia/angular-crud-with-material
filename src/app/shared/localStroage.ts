@@ -19,7 +19,7 @@ export class Storage {
 
     static create(customer: Customer): Observable<Customer> | Observable<string> {
         let customers = JSON.parse(localStorage.getItem('customers') || '[]');
-        const customerExist = customers.filter((item: Customer) => item.firstname === customer.firstname || item.lastname === customer.lastname || item.dateOfBirth === customer.dateOfBirth);
+        const customerExist = customers.find((item: Customer) => {return(item.firstname === customer.firstname && item.lastname === customer.lastname && new Date(item.dateOfBirth).toISOString() === new Date(customer.dateOfBirth).toISOString())});
         if (customerExist) {
             const str = of('Customer created before');
             return str;

@@ -59,7 +59,6 @@ export class CustomersComponent implements OnInit, OnDestroy {
     getAllCustomers(): void {
         this.customerService.getAll().pipe(takeUntil(this.ngDestroy$))
             .subscribe((data) => {
-                console.log(data);
                 this.dataSource = data;
             })
     }

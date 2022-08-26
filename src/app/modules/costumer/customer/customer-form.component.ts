@@ -49,7 +49,6 @@ export class CustomerFromComponent implements OnInit, OnDestroy {
             })
         } else {
             this.customerService.create(value).pipe(takeUntil(this.ngDestroy$)).subscribe(data => {
-                console.log(data)
                 if (data == 'Customer created before') {
                     this.notification.notify(data as string);
                     this.router.navigate(['./']);
